@@ -9,7 +9,6 @@ class BlockSet(object):
         if n < 0 or n >= 25:
             raise ValueError("Number of blocks should be smaller then 25")
         self.blocks = range(0, n)
-        self.n = n
         return self.blocks
 
     def move_a_onto_b(self, a, b):
