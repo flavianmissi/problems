@@ -19,7 +19,7 @@ class BlocksSetTestCase(unittest.TestCase):
         blocks = BlockSet(5)
         assert_equals(blocks.move_a_onto_b(a = 4, b = 0), [[4, 0], 1, 2, 3, -1])
 
-    def test_if_grouped_blocks_2_3_are_putted_back_in_their_original_position(self):
+    def test_if_grouped_blocks_2_3_are_put_back_in_their_original_position(self):
         blocks = BlockSet(8)
         assert_equals(blocks.move_a_onto_b(a = 1, b = 2), [0, -1, [1, 2], 3, 4, 5, 6, 7])
 
