@@ -9,7 +9,7 @@ class BlocksSetTestCase(unittest.TestCase):
 
     def test_if_blockset_number_is_valid(self):
 	blocks = BlockSet(5)
-        assert_equals(blocks.get_blocks, [0, 1, 2, 3, 4])
+        assert_equals(blocks.get_blocks(), [0, 1, 2, 3, 4])
 
     def test_if_move_3_onto_5(self):
         blocks = BlockSet(5)
