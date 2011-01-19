@@ -20,9 +20,9 @@ class BlockSet(object):
 
     def move_a_over_b(self, a, b):
         self.validate(a, b)
-        if type(self.blocks[a]) == list:
+        if type(self.blocks[a]) is list:
             self.blocks = self.reorder_block_to_original(a)
-            if type(self.blocks[b]) == list:
+            if type(self.blocks[b]) is list:
                 self.blocks[b].insert(0, a)
                 self.blocks[a] = -1
             else:
@@ -31,9 +31,9 @@ class BlockSet(object):
 
     def pile_a_onto_b(self, a, b):
         self.validate(a, b)
-        if type(self.blocks[b]) == list:
+        if type(self.blocks[b]) is list:
             self.blocks = self.reorder_block_to_original(b)
-        if type(self.blocks[a]) == list:
+        if type(self.blocks[a]) is list:
             self.blocks[a].append(b)
             self.blocks[b] = self.blocks[a]
             self.blocks[a] = -1
@@ -43,14 +43,14 @@ class BlockSet(object):
 
     def pile_a_over_b(self, a, b):
         self.validate(a, b)
-        if type(self.blocks[b]) == list and type(self.blocks[a]) == list:
+        if type(self.blocks[b]) is list and type(self.blocks[a]) is list:
             for i in reversed(self.blocks[a]):
                 self.blocks[b].insert(0, i)
                 self.blocks[a] = -1
-        elif type(self.blocks[b]) == list:
+        elif type(self.blocks[b]) is list:
             self.blocks[b].insert(0, a)
             self.blocks[a] = -1
-        elif type(self.blocks[a]) == list:
+        elif type(self.blocks[a]) is list:
             self.pile_a_onto_b(a, b)
         return self.blocks
             
@@ -77,7 +77,7 @@ class BlockSet(object):
 
     def reorder_where_block_in(self, block):
         for i in self.blocks:
-            if type(i) == list and block in i:
+            if type(i) is list and block in i:
                 for j in i:
                     self.blocks[j] = j
         return self.blocks
