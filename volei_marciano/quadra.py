@@ -55,6 +55,10 @@ class Quadra(object):
             raise ValueError(error)
 
     def get_judges(self):
+        self.get_judges_for_all_sides()        
+        return self.judges
+
+    def get_judges_for_all_sides(self):
         xs = []; ys = []
         for i in range(1, len(self.merged_list)):
             x1 = self.merged_list[i-1][0]; y1 = self.merged_list[i-1][1]
@@ -71,9 +75,6 @@ class Quadra(object):
                 ys.append(y1)
         self.judges = len(set(xs)) + len(set(ys))
 
-        return self.judges
-
-        
 
 
 
