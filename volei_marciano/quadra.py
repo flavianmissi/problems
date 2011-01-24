@@ -54,9 +54,37 @@ class Quadra(object):
         if x1 != x2 and y1 != y2:
             raise ValueError(error)
 
+    def is_x_or_y_over_some_line(self, coordinate):
+        biggest = self.get_biggest_and_smallest_x_and_y()
+        smallest = biggest['min']
+        biggest = biggest['max']
+        if coordinate[0] in range(smallest[0], biggest[0]+1) and coordinate[1] in range(smallest[1], biggest[1]+1):
+            return True
+        return False
+
+    def get_biggest_and_smallest_x_and_y(self):
+        xs = []; ys = []
+        for i in self.merged_list:
+            xs.append(i[0])
+            ys.append(i[1])
+        return {'max' : [max(xs), max(ys)], 'min' : [min(xs), min(ys)]}
+
     def get_judges(self):
-        self.get_judges_for_all_sides()        
+        special_judges = self.get_special_judges()
+        self.get_judges_for_all_sides() 
         return self.judges
+
+    def get_special_judges(self):
+        "Special judges are the ones that can watch two lines in the same time"
+        special_judges = 0
+        for i in range(2, len(self.merged_list)):
+            x1 = self.merged_list[i-2][0]; y1 = self.merged_list[i-2][1]
+            x2 = self.merged_list[i][0]; y2 = self.merged_list[i][1]
+            possibility_1 = [x1, y2]; possibility_2 = [x2,y1]
+            print possibility_1, i-2, possibility_2, i
+            if possibility_1 ==  self.merged_list[i-1] or possibility_2 ==  self.merged_list[i-1]:
+                special_judges += 1
+        return special_judges
 
     def get_judges_for_all_sides(self):
         xs = []; ys = []

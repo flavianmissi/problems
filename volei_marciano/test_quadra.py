@@ -76,6 +76,34 @@ class QuadraTestCase(unittest.TestCase):
         quadra.set_coordinates([ [A, B], [C, D], [E, F], [G, H]  ])
         assert_equals(quadra.get_judges(), 7)
 
+    def test_if_8_and_6_are_the_biggest_numbers_in_figure(self):
+        quadra = Quadra(8)
+        A = [6, 6]; B = [6, 4]; C = [5, 4]; D = [5, 6]
+        E = [2, 6]; F = [2, 3]; G = [8, 3]; H = [8, 6]
+        quadra.set_coordinates([ [A, B], [C, D], [E, F], [G, H]  ])
+        assert_equals(quadra.get_biggest_and_smallest_x_and_y(), {'max' : [8, 6], 'min' : [2, 3]})
+
+
+    def test_if_coordinate_is_over_some_line_in_the_square(self):
+        quadra = Quadra(4)
+        A = [3, 6]; B = [3, 9]; C = [5, 9]; D = [5, 6]
+        quadra.set_coordinates([ [A, B], [C, D]  ])
+        assert_true(quadra.is_x_or_y_over_some_line([4, 6]))
+
+    def test_if_coordinate_is_not_over_some_line_in_the_square(self):
+        quadra = Quadra(4)
+        A = [3, 6]; B = [3, 9]; C = [5, 9]; D = [5, 6]
+        quadra.set_coordinates([ [A, B], [C, D]  ])
+        assert_false(quadra.is_x_or_y_over_some_line([4, 1]))
+
+    def test_if_coordinate_is_over_some_vertical_line_in_the_square(self):
+        quadra = Quadra(4)
+        A = [3, 6]; B = [3, 9]; C = [5, 9]; D = [5, 6]
+        quadra.set_coordinates([ [A, B], [C, D]  ])
+        assert_true(quadra.is_x_or_y_over_some_line([5, 8]))
+
+
+
     def test_if_a_court_with_6_lines_has_5_judges(self):
         quadra = Quadra(6)
         A = [2, 1]; B = [2, 5]; C = [4, 5]
