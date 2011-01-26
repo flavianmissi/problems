@@ -102,6 +102,11 @@ class QuadraTestCase(unittest.TestCase):
         quadra.set_coordinates([ [A, B], [C, D]  ])
         assert_true(quadra.is_x_or_y_over_some_line([5, 8]))
 
+    def test_if_coordinate_is_inside_the_square(self):
+        quadra = Quadra(4)
+        A = [3, 6]; B = [3, 9]; C = [5, 9]; D = [5, 6]
+        quadra.set_coordinates([ [A, B], [C, D]  ])
+        assert_true(quadra.is_x_or_y_over_some_line([8, 4]))
 
 
     def test_if_a_court_with_6_lines_has_5_judges(self):
