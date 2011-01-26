@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <iostream>
 using namespace std;
-#include "encotel.h"
 
 
 int main(void)
