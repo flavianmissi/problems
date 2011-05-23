@@ -20,12 +20,12 @@ bool is_palindrome(int number){
     string original (itos(number));
     string reverse;
     string::reverse_iterator rit;
-    for(rit = original.rbegin(); rit < original.rend(); rit++){
+
+    for(rit = original.rbegin(); rit < original.rend(); rit++)
         reverse.append(ctos(*rit));
-    }
-    if(original.compare(reverse) == 0){
+
+    if(original.compare(reverse) == 0)
         return true;
-    }
     return false;
 }
 
