@@ -32,11 +32,13 @@ bool is_palindrome(int number){
 
 int largest_palindrome(){
     int biggest = 111;
+    int candidate;
     for(int i = 111; i <= 999; i++){
         for(int j = 111; j <= 999; j++){
-            if(is_palindrome(i*j)){
-                if(i*j > biggest){
-                    biggest = i*j;
+            candidate = i*j;
+            if(is_palindrome(candidate)){
+                if(candidate > biggest){
+                    biggest = candidate;
                 }
             }
         }
