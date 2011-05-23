@@ -17,8 +17,7 @@ string ctos(char c){
 }
 
 bool is_palindrome(int number){
-    string original (itos(number));
-    string reverse;
+    string original (itos(number)), reverse;
     string::reverse_iterator rit;
 
     for(rit = original.rbegin(); rit < original.rend(); rit++)
@@ -30,15 +29,14 @@ bool is_palindrome(int number){
 }
 
 int largest_palindrome(){
-    int biggest = 111;
-    int candidate;
+    int biggest = 111, candidate;
+
     for(int i = 111; i <= 999; i++){
         for(int j = 111; j <= 999; j++){
             candidate = i*j;
             if(is_palindrome(candidate)){
-                if(candidate > biggest){
+                if(candidate > biggest)
                     biggest = candidate;
-                }
             }
         }
     }
