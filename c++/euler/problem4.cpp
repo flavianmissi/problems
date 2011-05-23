@@ -31,7 +31,6 @@ bool is_palindrome(int number){
 }
 
 int largest_palindrome(){
-    //palindromes.push_back(2);
     int biggest = 111;
     for(int i = 111; i <= 999; i++){
         for(int j = 111; j <= 999; j++){
