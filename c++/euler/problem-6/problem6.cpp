@@ -4,8 +4,8 @@
 
 using namespace std;
 
-unsigned long long sum_of_squares(int until){
-    unsigned long long sum = 0;
+unsigned long sum_of_squares(int until){
+    unsigned long sum = 0;
     for(int i = 1; i <= until; i++){
         sum += pow(i, 2);
     }
