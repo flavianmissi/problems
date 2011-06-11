@@ -53,18 +53,10 @@ void lcm_tests(){
     assert(lcm(n) == 360);
 
     n.clear();
-    n.push_back(10);
-    n.push_back(11);
-    n.push_back(12);
-    n.push_back(13);
-    n.push_back(14);
-    n.push_back(15);
-    n.push_back(16);
-    n.push_back(17);
-    n.push_back(18);
-    n.push_back(19);
-    n.push_back(20);
+    for(int i = 10; i <= 20; i++)
+        n.push_back(i);
     assert(lcm(n) == 232792560);
+    n.clear();
 }
 
 void gcd_tests(){
