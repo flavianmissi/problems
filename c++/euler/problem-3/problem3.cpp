@@ -4,20 +4,16 @@
 using namespace std;
 
 bool is_prime(unsigned long long number){
-    unsigned long long divisors = 2; //1 and the number itself
-
-    if(number != 2 and number % 2 == 0)
-        divisors++;
-
-    for(unsigned long long i = 3; i < number; i += 2){
-        if(number % i == 0)
-            divisors++;
-        if(divisors > 2)
-            break;
-    }
-
-    if(divisors > 2)
+    if(number == 2)
+        return true;
+    if(number % 2 == 0)
         return false;
+
+    for(unsigned long long i = 3; i <= sqrt(number); i += 2){
+        if(number % i == 0){
+            return false;
+        }
+    }
     return true;
 }
 
